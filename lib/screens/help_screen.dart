@@ -15,6 +15,7 @@ class _NeedHelpState extends State<NeedHelp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           title: Text("Need Help?"),
           leading: InkWell(
             onTap: () {
@@ -22,20 +23,28 @@ class _NeedHelpState extends State<NeedHelp> {
             },
             child: Icon(Icons.arrow_back_ios_new_outlined)),
           actions: [
-            Text("FAQ's")
+              IconButton(onPressed: () {
+                // open live chart with bot
+              }, icon: Icon(Icons.support_agent_outlined))
           ],
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              Text("Recent Order"),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20)
                 ),
-                child: Lottie.asset("assets/page_banner/animation_lmgmuuuc.json"),
+                child: Lottie.asset("assets/page_banner/support.json",height: 200),
               ),
+              Text("Recent Order",style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+              ),
+              ),
+              SizedBox(height: 15,),
               Text("No order found in last 3 days"),
+              SizedBox(height: 10,),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white
@@ -52,10 +61,15 @@ class _NeedHelpState extends State<NeedHelp> {
                       subtitle: Text("view your"),
                       trailing: Icon(Icons.forward_10_outlined),
                     ),
-                    ListTile(
-                      title: Text("Profile and Address"),
-                      subtitle: Text("update your profile information like address"),
-                      trailing: Icon(Icons.forward_10_outlined),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/profile');
+                      },
+                      child: ListTile(
+                        title: Text("Profile and Address"),
+                        subtitle: Text("update your profile information like address"),
+                        trailing: Icon(Icons.forward_10_outlined),
+                      ),
                     ),
                     ListTile(
                       title: Text("App Guide"),
@@ -65,16 +79,49 @@ class _NeedHelpState extends State<NeedHelp> {
                   ],
                 ),
               ),
-              Text("VIP Support"),
+              Text("VIP Support",style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold
+              ),),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    child: Text("icon and call"),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            IconButton(onPressed: () {
+                              // call to customer use launcher
+                            }, icon: Icon(Icons.email_outlined)),
+                            Text("Support Email")
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                   Container(
-                    child: Text("icon and call"),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: Row(
+                      children: [
+                        Column(
+                          children: [
+                            IconButton(onPressed: () {
+                              // call to customer
+                            }, icon: Icon(Icons.call_end_outlined)),
+                            Text("Customer care")
+                          ],
+                        )
+                      ],
+                    ),
                   )
                 ],
+              ),
+              SizedBox(
+                height: 35,
               )
             ],
           ),
