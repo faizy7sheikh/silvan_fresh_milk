@@ -40,6 +40,7 @@ dependencies:
   carousel_slider: ^4.2.1
   url_launcher: ^6.1.11
   contacts_service: ^0.6.3
+  lottie: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -69,6 +70,7 @@ flutter:
     - assets/banner/
     - assets/category/
     - assets/product/
+    - assets/page_banner/
   
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

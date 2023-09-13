@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class NeedHelp extends StatefulWidget {
   const NeedHelp({super.key});
@@ -28,7 +29,12 @@ class _NeedHelpState extends State<NeedHelp> {
           child: Column(
             children: [
               Text("Recent Order"),
-              // animation image if no order
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                child: Lottie.asset("assets/page_banner/animation_lmgmuuuc.json"),
+              ),
               Text("No order found in last 3 days"),
               Container(
                 decoration: BoxDecoration(
